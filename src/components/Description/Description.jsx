@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import styles from './Description.module.css';
 
 const Description = () => {

@@ -27,11 +27,12 @@ const App = () => {
   }, [feedback]);
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+  const positive = Math.round((feedback.good / totalFeedback) * 100)
 
   const updateFeedback = feedbackType => {
     setFeedback(prevState => ({
       ...prevState,
-      [feedbackType]: prevState[feedbackType] + 1
+      [feedbackType]: prevState[feedbackType] + 1,
     }));
   };
 
@@ -39,7 +40,7 @@ const App = () => {
     setFeedback({
       good: 0,
       neutral: 0,
-      bad: 0
+      bad: 0,
     });
   };
 
@@ -56,6 +57,8 @@ const App = () => {
           good={feedback.good}
           neutral={feedback.neutral}
           bad={feedback.bad}
+          totalFeedback={totalFeedback}
+          positive={positive}
         />
       ) : (
         <Notification />

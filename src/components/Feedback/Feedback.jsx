@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './Feedback.module.css';
 
-const Feedback = ({ good, neutral, bad }) => {
-  const totalFeedback = good + neutral + bad;
-  const positive = Math.round((good / totalFeedback) * 100);
-
+const Feedback = ({ good, neutral, bad, totalFeedback, positive }) => {
   return (
     <div className={styles.feedbackContainer}>
       <ul className={styles.feedbackList}>
@@ -22,6 +19,8 @@ Feedback.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
+  totalFeedback: PropTypes.number.isRequired,
+  positive: PropTypes.number.isRequired,
 };
 
 export default Feedback;
